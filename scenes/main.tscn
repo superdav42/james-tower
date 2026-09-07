@@ -1,0 +1,159 @@
+[gd_scene load_steps=4 format=3 uid="uid://danielmain00001"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.0392157, 0.117647, 0.152941, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176471, 0.411765, 0.45098, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="ButtonStyle"]
+bg_color = Color(0.0784314, 0.721569, 0.65098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.964706, 0.898039, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="TopPanel" type="Panel" parent="Hud"]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 702.0
+offset_bottom = 140.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="TitleLabel" type="Label" parent="Hud"]
+offset_left = 40.0
+offset_top = 27.0
+offset_right = 680.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.6, 0.964706, 0.898039, 1)
+theme_override_font_sizes/font_size = 27
+text = "ARCANE DEFENSE"
+horizontal_alignment = 1
+
+[node name="ManaLabel" type="Label" parent="Hud"]
+offset_left = 42.0
+offset_top = 77.0
+offset_right = 304.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.490196, 0.827451, 0.968627, 1)
+theme_override_font_sizes/font_size = 17
+text = "MANA  20 / 99   +2/sec"
+
+[node name="BaseLabel" type="Label" parent="Hud"]
+offset_left = 310.0
+offset_top = 77.0
+offset_right = 500.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.368627, 0.917647, 0.831373, 1)
+theme_override_font_sizes/font_size = 17
+text = "CRYSTAL  10 / 10"
+horizontal_alignment = 1
+
+[node name="KillsLabel" type="Label" parent="Hud"]
+offset_left = 510.0
+offset_top = 77.0
+offset_right = 678.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.992157, 0.647059, 0.596078, 1)
+theme_override_font_sizes/font_size = 17
+text = "DEFEATED  0"
+horizontal_alignment = 2
+
+[node name="StatusLabel" type="Label" parent="Hud"]
+offset_left = 40.0
+offset_top = 112.0
+offset_right = 680.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.886275, 0.960784, 0.956863, 1)
+theme_override_font_sizes/font_size = 14
+text = "Summon defenders before the horde arrives!"
+horizontal_alignment = 1
+
+[node name="BottomPanel" type="Panel" parent="Hud"]
+offset_left = 18.0
+offset_top = 1092.0
+offset_right = 702.0
+offset_bottom = 1260.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="RosterLabel" type="Label" parent="Hud"]
+offset_left = 40.0
+offset_top = 1106.0
+offset_right = 680.0
+offset_bottom = 1158.0
+theme_override_colors/font_color = Color(0.741176, 0.796078, 0.8, 1)
+theme_override_font_sizes/font_size = 12
+text = "E ELECTRIC · CHAIN   I ICE · SLOW   F FIRE · BURN   A ARCHER · 25   R REAPER · 5% KO\nMAGES + REAPER DEAL 20 DAMAGE  •  ENEMIES START WITH 100 HP"
+horizontal_alignment = 1
+
+[node name="SummonButton" type="Button" parent="Hud"]
+offset_left = 42.0
+offset_top = 1170.0
+offset_right = 406.0
+offset_bottom = 1242.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.0196078, 0.101961, 0.12549, 1)
+theme_override_colors/font_hover_color = Color(0.0196078, 0.101961, 0.12549, 1)
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonStyle")
+text = "SUMMON  •  5 MANA"
+
+[node name="MergeButton" type="Button" parent="Hud"]
+offset_left = 420.0
+offset_top = 1170.0
+offset_right = 678.0
+offset_bottom = 1242.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 17
+text = "MERGE MATCHING"
+
+[node name="RestartButton" type="Button" parent="Hud"]
+offset_left = 568.0
+offset_top = 26.0
+offset_right = 682.0
+offset_bottom = 65.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 12
+text = "RESTART"
+
+[node name="GameOverPanel" type="Panel" parent="Hud"]
+visible = false
+offset_left = 90.0
+offset_top = 455.0
+offset_right = 630.0
+offset_bottom = 730.0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="GameOverLabel" type="Label" parent="Hud/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.647059, 0.596078, 1)
+theme_override_font_sizes/font_size = 28
+text = "THE CRYSTAL FELL"
+horizontal_alignment = 1
+vertical_alignment = 1
